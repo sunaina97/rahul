@@ -1,0 +1,132 @@
+<html>
+<body>
+<h1>Enter Your Personal Details</h1>
+<table>
+<tr>
+<td colspan="2"><label id="i1" name="i1" >First Name</label></td>
+<td colspan="2"><input type="text" id="text1" name="text11" value="" onChange="validate1(this)">
+<span id="t1" style="color:red">*</span></td>
+</tr>
+<tr>
+<td colspan="2"><label id="i2" name="i2">Last Name</label></td>
+<td colspan="2"><input type="text" id="t2" name="t2" value="" onChange="validate2(this)">
+<span id="r1" style="color:red">*</span></td>
+</tr>
+<td colspan="2"><label id="i3" name="i3">Email</label></td>
+<td colspan="2"><input type="text" id="t3" name="t3" value="" onChange="ValidateEmail(this)" >
+<span id="r2" style="color:red">*</span></td>
+<tr>
+<td colspan="2"><label id="i4" name="i4">Password</label></td>
+<td colspan="2"><input type="password" id="t4" name="t4" value="" onChange="CheckPassword(this)">
+<span id="r3" style="color:red">*</span></td>
+</tr>
+<tr>
+<td colspan="2"><label>gender</lable></td>
+<td colspan="2"><input type="radio" name="gen" value="m">male 
+<input type="radio" name="gen" value="f">female
+<input type="radio" name="gen" value="O">other</td>
+</tr>
+<tr>
+<td colspan="2"><button onclick="checkButton()"> Submit </button>
+</td>
+</tr>
+</table>
+<h1 id="r1"></h1>
+<h2 id="error" > </h2>
+</body>
+<script>
+function checkButton()
+{
+var a = document.getElementById("text1").value;
+var b = document.getElementById("t2").value;
+var c = document.getElementById("t3").value;
+var d = document.getElementById("t4").value;
+
+if(a=="")
+{
+alert("please fill the value");
+
+}
+else if(b=="")
+{
+alert("please fill the value");
+
+}
+else if(c=="")
+{
+alert("please fill the value");
+
+}
+else if(d=="")
+{
+alert("please fill the value");
+
+}
+else
+{
+alert("all details are filled");
+}
+}
+function validate1(inputtext)
+{
+alert(inputtext.value.length);
+var format =/^[A-Za-z]+$/;
+if(inputtext.value.length == 0)
+{
+document.getElementById("t1").innerHTML="please enter value";
+}
+else if(!(inputtext.value.match(format)))
+{
+document.getElementById("t1").innerHTML="please enter character only";
+}
+else
+{
+document.getElementById("t1").innerHTML="";
+}
+}
+function validate2(inputtext1)
+{
+alert(inputtext1.value.length);
+var format =/^[A-Za-z]+$/;
+if(inputtext1.value.length == 0)
+{
+document.getElementById("r1").innerHTML="please enter value";
+}
+else if(!(inputtext1.value.match(format)))
+{
+document.getElementById("r1").innerHTML="please enter character only";
+}
+else
+{
+document.getElementById("r1").innerHTML="";
+}
+}
+function ValidateEmail(inputText2)
+{
+var format = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+if(!(inputText2.value.match(format)))
+{
+document.getElementById("r2").innerHTML="enter valid email syntax";
+}
+
+else{
+document.getElementById("r2").innerHTML="";
+}
+}
+function CheckPassword(inputtext3) 
+{ 
+var format=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+   
+if(!(inputtext3.value.match(format)))
+{ 
+document.getElementById("r3").innerHTML="password must be of 8 to 15 length<br>Password must contain one digit,one special character,one uppercase letter and lowercase letter";
+}
+else
+{
+document.getElementById("r3").innerHTML="";
+}
+	
+}
+
+</script>
+</html>
